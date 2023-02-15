@@ -1,0 +1,25 @@
+{
+  "name": "boilerplate-template",
+  "version": "1.0.0",
+  "license": "(MIT AND Apache-2.0)",
+  "scripts": {
+    "dev": "npm run deploy:check && cd frontend && npm run dev",
+    "start": "npm run deploy:check && cd frontend && npm run start",
+    "deploy": "cd contracts && ./dev-deploy.sh",
+    "build": "cd frontend && npm run build",
+    "postinstall": "cd frontend && npm install",
+    "prepare": "husky install",
+    "lint": "cd frontend && npm run lint",
+    "prettier:check": "cd frontend && npm run prettier:check",
+    "deploy:check": "cd contracts && ./check-deploy.sh"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.13",
+    "husky": "^8.0.1",
+    "lint-staged": "^13.0.3",
+    "near-cli": "^3.3.0"
+  },
+  "lint-staged": {
+    "*/frontend/*": "prettier --write ."
+  }
+}
